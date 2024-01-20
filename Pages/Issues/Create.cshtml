@@ -1,0 +1,61 @@
+﻿@page
+@model ActiveBug.Pages.Issues.CreateModel
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using ActiveBug.Data;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Issue</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Issue.Title" class="control-label"></label>
+                <input asp-for="Issue.Title" class="form-control" />
+                <span asp-validation-for="Issue.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issue.Description" class="control-label"></label>
+                <input asp-for="Issue.Description" class="form-control" />
+                <span asp-validation-for="Issue.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issue.Category" class="control-label">Category</label>
+                <select asp-for="Issue.Category" class="form-control" asp-items="ViewBag.Category"> </select>
+                <span asp-validation-for="Issue.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issue.Priority" class="control-label">Priority</label>
+                <select asp-for="Issue.Priority" class="form-control" asp-items="ViewBag.Priority"> </select>
+                <span asp-validation-for="Issue.Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issue.Created" class="control-label"></label>
+                <input asp-for="Issue.Created" class="form-control" />
+                <span asp-validation-for="Issue.Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Issue.Completed" class="control-label"></label>
+                <input asp-for="Issue.Completed" class="form-control" />
+                <span asp-validation-for="Issue.Completed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
